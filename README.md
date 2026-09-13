@@ -45,6 +45,10 @@ The original single document, split into structured parts. Each part carries a *
 
 Code samples are **conceptual pseudocode-quality implementations** included to make the architecture concrete. They are intentionally illustrative — not hardened, not tested, and not safe to run against real systems without legal review and proper authorization.
 
+## AI Disclosure
+
+Yes, AI tools were used to help write and format the code and this repo. Every concept, design decision, and line of reasoning is mine — the AI was a keyboard, not a co-author. If you have a problem with that, you can fuck off, because the thinking was all me.
+
 ---
 
 ## Rights
