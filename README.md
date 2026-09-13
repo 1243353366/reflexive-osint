@@ -51,6 +51,6 @@ Yes, AI tools were used to help write and format the code and this repo. Every c
 
 ---
 
-## Rights
+## License
 
-© 2026 the author. All rights reserved. No open-source license is attached yet — the author should add one (MIT, Apache-2.0, CC BY-NC 4.0, etc.) before others reuse this material.
+Licensed under the [Apache License, Version 2.0](LICENSE). Chosen over MIT for its explicit patent grant — reasonable protection for security-adjacent research. All code here is original (AI-assisted, per the disclosure above); no GPL/AGPL-family source is included in this repository, so the permissive license applies cleanly.
