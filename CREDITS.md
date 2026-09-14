@@ -18,6 +18,12 @@ This file credits the original authors and organizations whose work this documen
 | "UMBRAGE-style" techniques (reference) | CIA UMBRAGE project, as publicly disclosed (Vault 7) | Referenced as naming convention for low-level impersonation analysis (`docs/05`) |
 | Honeypot / decoy architecture practice | The honeypot research community (incl. **The Honeynet Project**) | Web honey-pots and the "rabbit hole" decoy design (`docs/04`, `docs/05`) |
 
+| Palantir-OSINT (multi-source OSINT aggregation → entity-relationship graph) | **JehanPatel** ([repo](https://github.com/JehanPatel/Palantir-OSINT)) | Architecture inspiration for Investigate mode's aggregation layer. **No code incorporated** — the repo carries no license; the design pattern was independently reimplemented clean-room from its public README |
+| gitleaks — secret/credential exposure scanning | **Zachary Rice / @zricethezav** ([repo](https://github.com/gitleaks/gitleaks)) | Forked under MIT ([our fork](https://github.com/1243353366/gitleaks), NOTICE added). Isolated detect-only service — never used to authenticate or verify found credentials |
+| openEDGAR — SEC EDGAR structured data | **LexPredict, LLC** ([repo](https://github.com/LexPredict/openedgar)) | Forked under MIT ([our fork](https://github.com/1243353366/openedgar), NOTICE added). Isolated service behind the API boundary for the corporate relationship graph |
+| SugarTrail — companies/officers/addresses networks from public registries | **Sean Greaves / @ribenamaplesyrup, Bellingcat** ([repo](https://github.com/bellingcat/sugartrail)) | Forked under MIT ([our fork](https://github.com/1243353366/sugartrail), NOTICE added). Isolated public-records service complementing openEDGAR for non-US records |
+
+
 ## Referenced technologies & libraries
 
 The architecture references (but does not copy code from) these projects, each under its own license: PostgreSQL, TimescaleDB, PyTorch, PyTorch Lightning, PyTorch Geometric, scikit-learn, Hugging Face Transformers, Celery, Redis, NetworkX, Plotly / Dash, Prometheus / Grafana, the R ecosystem (tidyverse, text2vec, topicmodels, anomalize, DBI/RPostgres), nlohmann/json, libcurl, and Boost.

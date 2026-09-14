@@ -36,6 +36,7 @@ The original single document, split into structured parts. Each part carries a *
 | 05 | [`docs/05-hardening-and-fingerprint-fixes.md`](docs/05-hardening-and-fingerprint-fixes.md) | **Defensive:** code hardening (deadlock, SQL injection, model poisoning fixes), protocol fingerprinting, jitter analysis, production containerization, decoy "rabbit hole" design |
 | 06 | [`docs/06-theoretical-foundations.md`](docs/06-theoretical-foundations.md) | Theory: Lefebvre's reflexive control, Camerer's behavioral game theory, NLP pipeline optimization |
 | 07 | [`docs/07-epistemic-autopsy.md`](docs/07-epistemic-autopsy.md) | The self-audit: plausible hypotheses vs. overstated claims vs. pure speculation, with falsification criteria for each |
+| 08 | [`docs/08-investigate-mode-v2.md`](docs/08-investigate-mode-v2.md) | Investigate mode v2: OSINT aggregation + relationship graph — license gate record, fork provenance, isolated-service integration spec |
 
 **Suggested reading order:** 00 → 01 → 02 → 07 (if you only read four things), then the rest.
 
@@ -50,6 +51,15 @@ Code samples are **conceptual pseudocode-quality implementations** included to m
 Yes, AI tools were used to help write and format the code and this repo. Every concept, design decision, and line of reasoning is mine — the AI was a keyboard, not a co-author. If you have a problem with that, you can fuck off, because the thinking was all me.
 
 ---
+
+## Credits & Attribution
+
+Investigate mode's OSINT aggregation architecture (multi-source
+entity-relationship graph pattern) was inspired by
+[Palantir-OSINT](https://github.com/JehanPatel/Palantir-OSINT) by
+[@JehanPatel](https://github.com/JehanPatel). No code from that
+repository has been directly incorporated; the design pattern was
+independently reimplemented for this project.
 
 ## Credits & Attributions
 
