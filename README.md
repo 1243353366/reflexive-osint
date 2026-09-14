@@ -61,9 +61,11 @@ entity-relationship graph pattern) was inspired by
 repository has been directly incorporated; the design pattern was
 independently reimplemented for this project.
 
-## Credits & Attributions
-
-This document is openly derivative — see [CREDITS.md](CREDITS.md) for the original authors whose work it builds on (Lefebvre, Camerer, MITRE, John Althouse's JA4+, Thinkst, and others). No source code was copied from any of their projects.
+This document is openly derivative — see [CREDITS.md](CREDITS.md) for the
+original authors whose work it builds on (Lefebvre, Camerer, MITRE, John
+Althouse's JA4+, Thinkst, the forked upstreams — and others). No source code
+was copied from any of their projects; forked projects are credited in their
+own repositories' NOTICE files and retain their original licenses.
 
 ## License
 
