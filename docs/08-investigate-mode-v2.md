@@ -40,9 +40,9 @@ file crediting the original author (handle + repo URL) and stating what changed.
 
 | Fork | NOTICE commit | Changes made |
 |---|---|---|
-| [1243353366/gitleaks](https://github.com/1243353366/gitleaks) | `8b87ac4` | NOTICE added; planned integration as isolated detect-only service |
-| [1243353366/openedgar](https://github.com/1243353366/openedgar) | `b954321` | NOTICE added; planned integration as isolated corporate-filings service |
-| [1243353366/sugartrail](https://github.com/1243353366/sugartrail) | `3f3925c` | NOTICE added; planned integration as isolated public-records service |
+| [1243353366/gitleaks](https://github.com/1243353366/gitleaks) | `8b87ac4` | NOTICE added; integrated as isolated detect-only service (`services/investigate/exposure-scanner/`) |
+| [1243353366/openedgar](https://github.com/1243353366/openedgar) | `b954321` | NOTICE added; integrated as isolated corporate-filings service (`services/investigate/corporate-filings/`) |
+| [1243353366/sugartrail](https://github.com/1243353366/sugartrail) | `3f3925c` | NOTICE added; integration point reserved (`services/investigate/` — public-records adapter pending) |
 
 Integration rule: **no direct merge of fork code into core reflexive-osint**.
 Each fork runs as an isolated service behind the Investigate mode API boundary

@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Investigate Mode v2 — Entity & Edge Types",
+  "description": "Entity types and edge types for the OSINT relationship graph. ExposedSecret nodes never contain secret material — only a truncated SHA-256 fingerprint.",
+  "node_types": {
+    "Organization": {
+      "fields": ["name", "aliases", "jurisdiction", "canonical_key", "sources"],
+      "notes": "Generic org. Company extends this."
+    },
+    "Company": {
+      "fields": ["name", "aliases", "cik", "jurisdiction", "canonical_key", "sources"],
+      "notes": "SEC-registrable org. Subsidiary is a Company with a subsidiary_of edge."
+    },
+    "Subsidiary": {
+      "fields": [],
+      "notes": "Not a distinct node type — modeled as Company + subsidiary_of edge."
+    },
+    "Person": {
+      "fields": ["name", "aliases", "roles", "canonical_key", "sources"],
+      "notes": "roles: [{title, organization, start, end}]"
+    },
+    "Filing": {
+      "fields": ["accession_no", "form_type", "filed_at", "company_cik", "url", "sources"]
+    },
+    "Repository": {
+      "fields": ["url", "owner", "host", "sources"]
+    },
+    "Bucket": {
+      "fields": ["provider", "name_or_arn", "region", "sources"]
+    },
+    "ExposedSecret": {
+      "fields": ["finding_id", "rule_id", "kind", "entropy", "fingerprint", "commit_ref", "detected_at", "status"],
+      "notes": "fingerprint = sha256(secret)[:12]. NEVER the secret material. status is always 'flagged' — no verification step exists."
+    }
+  },
+  "edge_types": {
+    "ownership_of":      ["Company", "Company"],
+    "subsidiary_of":    ["Company", "Company"],
+    "exec_overlap":     ["Person", "Company"],
+    "filed_by":         ["Filing", "Company"],
+    "referenced_in":    ["Organization", "Filing"],
+    "exposed_in":       ["ExposedSecret", "Repository"],
+    "bucket_of":        ["ExposedSecret", "Bucket"],
+    "operates_bucket":  ["Organization", "Bucket"],
+    "owns_repository":  ["Organization", "Repository"]
+  }
+}

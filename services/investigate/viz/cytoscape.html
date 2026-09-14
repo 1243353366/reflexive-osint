@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investigate Mode v2 — Relationship Graph</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.0/cytoscape.min.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; font-family: system-ui, sans-serif; }
+  #cy { height: 100%; width: 100%; }
+  #status { position: fixed; top: 12px; left: 12px; z-index: 10;
+            padding: 6px 12px; border-radius: 8px; font-size: 13px;
+            background: rgba(20,20,20,.75); color: #eee; }
+  form { position: fixed; top: 12px; right: 12px; z-index: 10; display: flex; gap: 6px; }
+  input { padding: 6px 10px; border-radius: 6px; border: 1px solid #888; min-width: 220px; }
+  button { padding: 6px 12px; border-radius: 6px; border: none; cursor: pointer;
+           background: #2563eb; color: white; font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="status">Loading graph…</div>
+<form id="q">
+  <input id="cik" placeholder="CIK (e.g. 320193)" inputmode="numeric" required>
+  <button type="submit">Company graph</button>
+</form>
+<div id="cy"></div>
+<script>
+const API = new URLSearchParams(location.search).get('api') || '/api/v1';
+
+const STYLES = [
+  { selector: 'node', style: {
+      label: 'data(label)', 'text-valign': 'bottom', 'font-size': 10,
+      width: 22, height: 22, 'background-color': '#9ca3af' } },
+  { selector: 'node[type = "Company"]',   style: { 'background-color': '#2563eb', shape: 'round-rectangle' } },
+  { selector: 'node[type = "Person"]',   style: { 'background-color': '#16a34a', shape: 'ellipse' } },
+  { selector: 'node[type = "Filing"]',    style: { 'background-color': '#9333ea', shape: 'round-tag' } },
+  { selector: 'node[type = "ExposedSecret"]', style: { 'background-color': '#dc2626', shape: 'triangle' } },
+  { selector: 'edge', style: {
+      'width': 1.5, 'line-color': '#6b7280',
+      'target-arrow-shape': 'triangle', 'arrow-scale': 0.6,
+      'curve-style': 'bezier' } },
+];
+
+const cy = cytoscape({ container: document.getElementById('cy'), elements: [], style: STYLES,
+  layout: { name: 'cose', animate: true } });
+
+function loadGraph(url) {
+  const status = document.getElementById('status');
+  fetch(url).then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }).then(data => {
+    cy.elements().remove();
+    cy.add(data.cytoscape || []);
+    cy.layout({ name: 'cose', animate: true }).run();
+    status.textContent = (data.cytoscape || []).length + ' elements — ' + url;
+  }).catch(err => {
+    status.textContent = 'Failed to load graph (' + err.message + '). Start the API: uvicorn api:app --port 8010';
+  });
+}
+
+document.getElementById('q').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const cik = document.getElementById('cik').value.trim();
+  if (cik) loadGraph(API + '/company/' + cik);
+});
+
+loadGraph(API + '/graph');
+</script>
+</body>
+</html>

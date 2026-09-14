@@ -37,6 +37,7 @@ The original single document, split into structured parts. Each part carries a *
 | 06 | [`docs/06-theoretical-foundations.md`](docs/06-theoretical-foundations.md) | Theory: Lefebvre's reflexive control, Camerer's behavioral game theory, NLP pipeline optimization |
 | 07 | [`docs/07-epistemic-autopsy.md`](docs/07-epistemic-autopsy.md) | The self-audit: plausible hypotheses vs. overstated claims vs. pure speculation, with falsification criteria for each |
 | 08 | [`docs/08-investigate-mode-v2.md`](docs/08-investigate-mode-v2.md) | Investigate mode v2: OSINT aggregation + relationship graph — license gate record, fork provenance, isolated-service integration spec |
+| — | [`services/investigate/`](services/investigate/README.md) | Investigate mode v2 **code**: API boundary, OSINT aggregation (clean-room), exposure-scanner (detect-only), corporate-filings client, threat-intel enrichment, Cytoscape.js viewer |
 
 **Suggested reading order:** 00 → 01 → 02 → 07 (if you only read four things), then the rest.
 
@@ -45,6 +46,16 @@ The original single document, split into structured parts. Each part carries a *
 ## A Note on the Code
 
 Code samples are **conceptual pseudocode-quality implementations** included to make the architecture concrete. They are intentionally illustrative — not hardened, not tested, and not safe to run against real systems without legal review and proper authorization.
+
+## Services
+
+[`services/investigate/`](services/investigate/README.md) hosts the Investigate
+Mode v2 code shells: stdlib-only modules behind a single API boundary
+(`services/investigate/api.py`). The forked upstreams (gitleaks, openEDGAR,
+sugartrail — all MIT, all credited in their NOTICE files) run as **external
+services**; no third-party code is merged into this repository. The exposure
+scanner is **detect-only**: it never authenticates or verifies found
+credentials. Status: early scaffolding — see the services README.
 
 ## AI Disclosure
 
