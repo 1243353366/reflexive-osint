@@ -38,6 +38,7 @@ The original single document, split into structured parts. Each part carries a *
 | 07 | [`docs/07-epistemic-autopsy.md`](docs/07-epistemic-autopsy.md) | The self-audit: plausible hypotheses vs. overstated claims vs. pure speculation, with falsification criteria for each |
 | 08 | [`docs/08-investigate-mode-v2.md`](docs/08-investigate-mode-v2.md) | Investigate mode v2: OSINT aggregation + relationship graph — license gate record, fork provenance, isolated-service integration spec |
 | — | [`services/investigate/`](services/investigate/README.md) | Investigate mode v2 **code**: API boundary, OSINT aggregation (clean-room), exposure-scanner (detect-only), corporate-filings client, threat-intel enrichment, Cytoscape.js viewer |
+| 09 | [`docs/09-release-history.md`](docs/09-release-history.md) | Why the v1.0.0 release/tag was deleted and superseded by v2.0.0 — documented so the removal is never ambiguous |
 
 **Suggested reading order:** 00 → 01 → 02 → 07 (if you only read four things), then the rest.
 
