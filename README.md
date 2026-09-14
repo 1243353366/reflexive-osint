@@ -51,6 +51,10 @@ Yes, AI tools were used to help write and format the code and this repo. Every c
 
 ---
 
+## Credits & Attributions
+
+This document is openly derivative — see [CREDITS.md](CREDITS.md) for the original authors whose work it builds on (Lefebvre, Camerer, MITRE, John Althouse's JA4+, Thinkst, and others). No source code was copied from any of their projects.
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE). Chosen over MIT for its explicit patent grant — reasonable protection for security-adjacent research. All code here is original (AI-assisted, per the disclosure above); no GPL/AGPL-family source is included in this repository, so the permissive license applies cleanly.
